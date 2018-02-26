@@ -11,6 +11,8 @@
 		79B7B09A1F619FEA000CA693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B7B0991F619FEA000CA693 /* ViewController.swift */; };
 		79B7B09C1F619FEA000CA693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B7B09B1F619FEA000CA693 /* Assets.xcassets */; };
 		79B7B09F1F619FEA000CA693 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79B7B09D1F619FEA000CA693 /* Main.storyboard */; };
+		79B7B0A81F61A018000CA693 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B7B0A71F61A018000CA693 /* Functions.swift */; };
+		79B7B0AA1F61A98A000CA693 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B7B0A91F61A98A000CA693 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +23,8 @@
 		79B7B09E1F619FEA000CA693 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		79B7B0A01F619FEA000CA693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		79B7B0A11F619FEA000CA693 /* eScripts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eScripts.entitlements; sourceTree = "<group>"; };
+		79B7B0A71F61A018000CA693 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		79B7B0A91F61A98A000CA693 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				79B7B09D1F619FEA000CA693 /* Main.storyboard */,
 				79B7B0A01F619FEA000CA693 /* Info.plist */,
 				79B7B0A11F619FEA000CA693 /* eScripts.entitlements */,
+				79B7B0A71F61A018000CA693 /* Functions.swift */,
+				79B7B0A91F61A98A000CA693 /* Constants.swift */,
 			);
 			path = eScripts;
 			sourceTree = "<group>";
@@ -136,6 +142,8 @@
 			files = (
 				79B7B09A1F619FEA000CA693 /* ViewController.swift in Sources */,
 				79B7B0981F619FEA000CA693 /* AppDelegate.swift in Sources */,
+				79B7B0A81F61A018000CA693 /* Functions.swift in Sources */,
+				79B7B0AA1F61A98A000CA693 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +277,7 @@
 				DEVELOPMENT_TEAM = VY6BVT84SC;
 				INFOPLIST_FILE = eScripts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fulgentwake.eScripts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -285,6 +294,7 @@
 				DEVELOPMENT_TEAM = VY6BVT84SC;
 				INFOPLIST_FILE = eScripts/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.fulgentwake.eScripts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
