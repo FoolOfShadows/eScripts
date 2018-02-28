@@ -110,6 +110,7 @@ class ViewController: NSViewController {
 		
 		//Get script data
 		var finalScriptData = "\n\n\(ptNameAgeDOB.1)\n\(getScriptDataFrom(theText))"
+        print(finalScriptData)
 		
 		finalScriptData = currentResults.replacingOccurrences(of: "\n\nRESPONSE:", with: finalScriptData)
 		
@@ -118,7 +119,7 @@ class ViewController: NSViewController {
 		scriptText.typingAttributes = fontAttributes as! [NSAttributedStringKey : Any]
 		let count = Int(scriptText.string.count)
 		scriptText.shouldChangeText(in: NSMakeRange(0, count), replacementString: "\(finalScriptData)\n\nRESPONSE:\n")
-		//scriptText.string = "\(finalScriptData)\n\nRESPONSE:\n"
+		scriptText.string = "\(finalScriptData)\n\nRESPONSE:\n"
 		scriptText.didChangeText()
 
 	}
