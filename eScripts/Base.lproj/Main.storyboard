@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13189.4" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13189.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -708,7 +708,7 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="eScripts" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="442" height="472"/>
+                        <rect key="frame" x="0.0" y="0.0" width="442" height="524"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="c6p-jb-UJg">
@@ -722,16 +722,16 @@
                                 </connections>
                             </button>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ive-wN-4jg">
-                                <rect key="frame" x="20" y="61" width="402" height="391"/>
+                                <rect key="frame" x="20" y="94" width="402" height="410"/>
                                 <clipView key="contentView" id="Dsb-fN-HUc">
-                                    <rect key="frame" x="1" y="1" width="385" height="389"/>
+                                    <rect key="frame" x="1" y="1" width="385" height="408"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" smartInsertDelete="YES" id="oe0-QZ-JYh">
-                                            <rect key="frame" x="0.0" y="0.0" width="385" height="389"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="385" height="408"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <size key="minSize" width="385" height="389"/>
+                                            <size key="minSize" width="385" height="408"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -743,7 +743,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="yw1-Wz-a3Y">
-                                    <rect key="frame" x="386" y="1" width="15" height="389"/>
+                                    <rect key="frame" x="386" y="1" width="15" height="408"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -758,8 +758,8 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nr0-qq-I5j">
-                                <rect key="frame" x="110" y="13" width="104" height="32"/>
-                                <buttonCell key="cell" type="push" title="Add Script" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDQ-Dg-8Vf">
+                                <rect key="frame" x="272" y="46" width="156" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add Another Script" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dDQ-Dg-8Vf">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -767,18 +767,30 @@
                                     <action selector="addScript:" target="XfG-lQ-9wD" id="PYw-dD-tqY"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1rY-tf-TER">
+                                <rect key="frame" x="105" y="13" width="133" height="32"/>
+                                <buttonCell key="cell" type="push" title="Add Visit Dates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VNK-uw-4qE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="addVisitDates:" target="XfG-lQ-9wD" id="Saq-CD-f5Z"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nr0-qq-I5j" secondAttribute="trailing" constant="20" id="BOr-el-vyE"/>
                             <constraint firstItem="Ive-wN-4jg" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="LcV-Ao-JZw"/>
+                            <constraint firstItem="c6p-jb-UJg" firstAttribute="top" secondItem="nr0-qq-I5j" secondAttribute="bottom" constant="12" id="P0X-OR-lsV"/>
                             <constraint firstAttribute="trailing" secondItem="c6p-jb-UJg" secondAttribute="trailing" constant="20" id="PDB-gh-yXM"/>
-                            <constraint firstAttribute="bottom" secondItem="Ive-wN-4jg" secondAttribute="bottom" constant="61" id="Qm0-oM-lvV"/>
                             <constraint firstAttribute="bottom" secondItem="c6p-jb-UJg" secondAttribute="bottom" constant="20" id="Vlf-0F-X8E"/>
                             <constraint firstAttribute="trailing" secondItem="Ive-wN-4jg" secondAttribute="trailing" constant="20" id="WPj-SA-9xy"/>
-                            <constraint firstItem="nr0-qq-I5j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" symbolic="YES" id="aam-Vy-HFS"/>
-                            <constraint firstAttribute="bottom" secondItem="nr0-qq-I5j" secondAttribute="bottom" constant="20" id="d7g-Ie-BTm"/>
                             <constraint firstItem="Ive-wN-4jg" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="dC4-GJ-2ao"/>
+                            <constraint firstItem="sza-qG-Uvt" firstAttribute="leading" secondItem="1rY-tf-TER" secondAttribute="trailing" constant="12" id="j4h-lx-9MC"/>
+                            <constraint firstAttribute="bottom" secondItem="1rY-tf-TER" secondAttribute="bottom" constant="20" id="n2b-os-fz0"/>
+                            <constraint firstItem="1rY-tf-TER" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="111" id="prj-Ak-BMt"/>
                             <constraint firstAttribute="bottom" secondItem="sza-qG-Uvt" secondAttribute="bottom" constant="20" id="qtf-oc-Sav"/>
-                            <constraint firstItem="sza-qG-Uvt" firstAttribute="leading" secondItem="nr0-qq-I5j" secondAttribute="trailing" constant="36" id="rVy-yZ-ntI"/>
+                            <constraint firstItem="nr0-qq-I5j" firstAttribute="top" secondItem="Ive-wN-4jg" secondAttribute="bottom" constant="20" id="rHv-Qd-A0O"/>
                             <constraint firstItem="c6p-jb-UJg" firstAttribute="leading" secondItem="sza-qG-Uvt" secondAttribute="trailing" constant="12" id="rmA-8R-QwC"/>
                         </constraints>
                     </view>
@@ -788,7 +800,7 @@
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="756"/>
+            <point key="canvasLocation" x="56" y="782"/>
         </scene>
     </scenes>
 </document>

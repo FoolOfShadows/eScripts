@@ -19,11 +19,10 @@ class ViewController: NSViewController {
 		return _undoManager
 	}
 	
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        scriptUndoManager = scriptText.undoManager
-//        // Do any additional setup after loading the view.
-//    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //scriptUndoManager = scriptText.undoManager
+    }
 
 	@IBAction func processPFData(_ sender: Any) {
 		
@@ -87,6 +86,27 @@ class ViewController: NSViewController {
 
 			}})
 	}
+    
+    @IBAction func addVisitDates(_ sender: Any) {
+        //Get the clipboard to process
+        let pasteBoard = NSPasteboard.general
+        guard let theText = pasteBoard.string(forType: NSPasteboard.PasteboardType(rawValue: "public.utf8-plain-text")) else { return }
+        
+        var lastAppointment:String {return getLastAptInfoFrom(theText)}
+        var nextAppointment:String {return getNextAptInfoFrom(theText)}
+        
+        let currentResults = scriptText.string
+        let finalScriptData = currentResults.replacingOccurrences(of: "\n\nRESPONSE:", with: "\n\nLast Apt: \(lastAppointment)\nNext Apt: \(nextAppointment)")
+        
+        let theUserFont:NSFont = NSFont.systemFont(ofSize: 18)
+        let fontAttributes = NSDictionary(object: theUserFont, forKey: NSAttributedStringKey.font as NSCopying)
+        scriptText.typingAttributes = fontAttributes as! [NSAttributedStringKey : Any]
+        //let count = Int(scriptText.string.count)
+        //scriptText.shouldChangeText(in: NSMakeRange(0, count), replacementString: "\(finalScriptData)\n\nRESPONSE:\n")
+        scriptText.string = "\(finalScriptData)\n\nRESPONSE:\n"
+        scriptText.didChangeText()
+        
+    }
 	
 	@IBAction func addScript(_ sender: Any) {
 		

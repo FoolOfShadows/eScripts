@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		795E5E0F209A1F6E00322136 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795E5E0E209A1F6E00322136 /* StringExtensions.swift */; };
 		79B7B0981F619FEA000CA693 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B7B0971F619FEA000CA693 /* AppDelegate.swift */; };
 		79B7B09A1F619FEA000CA693 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B7B0991F619FEA000CA693 /* ViewController.swift */; };
 		79B7B09C1F619FEA000CA693 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79B7B09B1F619FEA000CA693 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		795E5E0E209A1F6E00322136 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		79B7B0941F619FEA000CA693 /* eScripts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eScripts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79B7B0971F619FEA000CA693 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79B7B0991F619FEA000CA693 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				79B7B0A11F619FEA000CA693 /* eScripts.entitlements */,
 				79B7B0A71F61A018000CA693 /* Functions.swift */,
 				79B7B0A91F61A98A000CA693 /* Constants.swift */,
+				795E5E0E209A1F6E00322136 /* StringExtensions.swift */,
 			);
 			path = eScripts;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				79B7B09A1F619FEA000CA693 /* ViewController.swift in Sources */,
 				79B7B0981F619FEA000CA693 /* AppDelegate.swift in Sources */,
+				795E5E0F209A1F6E00322136 /* StringExtensions.swift in Sources */,
 				79B7B0A81F61A018000CA693 /* Functions.swift in Sources */,
 				79B7B0AA1F61A98A000CA693 /* Constants.swift in Sources */,
 			);

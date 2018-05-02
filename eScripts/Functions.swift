@@ -9,59 +9,34 @@
 import Cocoa
 import Foundation
 
-
-extension String {
-	func findRegexMatchBetween(_ start: String, and end:String) -> String? {
-		guard let startRegex = try? NSRegularExpression(pattern: start, options: []) else { return nil }
-		guard let endRegex = try? NSRegularExpression(pattern: end, options: []) else {return nil }
-		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
-		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
-		
-		if !startMatch.isEmpty && !endMatch.isEmpty {
-			let startRange = startMatch[0].range
-			let endRange = endMatch[0].range
-		
-			let r = self.index(self.startIndex, offsetBy: startRange.location) ..< self.index(self.startIndex, offsetBy: endRange.location + endRange.length)
-		
-			return String(self[r])
-			//return self.substring(with: r)
-		} else {
-			return nil
-		}
-	}
-	
-	
-	func findRegexMatchFrom(_ start: String, to end: String) -> String? {
-
-		guard let startRegex = try? NSRegularExpression(pattern: start, options: []) else { return nil }
-		guard let endRegex = try? NSRegularExpression(pattern: end, options: []) else {return nil }
-		let startMatch = startRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
-		let endMatch = endRegex.matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
-
-		
-		if !startMatch.isEmpty && !endMatch.isEmpty {
-			let startRange = startMatch[0].range
-			print(startRange)
-			let endRange = endMatch[0].range
-			print(endRange)
-
-			let r = self.index(self.startIndex, offsetBy: startRange.location + startRange.length) ..< self.index(self.startIndex, offsetBy: endRange.location)
-		
-			return String(self[r])
-		} else {
-			return nil
-			//return self.substring(with: r)
-		}
-
-		
-	}
-	
-	
-	func removeWhiteSpace() -> String {
-		return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-	}
+func getLastAptInfoFrom(_ theText: String) -> String {
+    guard let baseSection = theText.findRegexMatchFrom("Encounters", to: "Appointments") else {return ""}
+    //print(baseSection)
+    guard let encountersSection = baseSection.findRegexMatchBetween("Encounters", and: "Messages") else {return ""}
+    //print(encountersSection)
+    let activeEncounters = encountersSection.ranges(of: "(?s)(\\d./\\d./\\d*)(.*?)(\\n)(?=\\d./\\d./\\d*)", options: .regularExpression).map{encountersSection[$0]}.map{String($0)}.filter {!$0.contains("No chief complaint recorded")}
+    print(activeEncounters)
+    if activeEncounters.count > 0 {
+        return activeEncounters[0].simpleRegExMatch("\\d./\\d./\\d*")
+    } else {
+        return "Last apt not found"
+    }
 }
 
+func getNextAptInfoFrom(_ theText: String) -> String {
+    guard let nextAppointments = theText.findRegexMatchBetween("Appointments", and: "View all appointments") else {return ""}
+    //print(nextAppointments)
+    let activeEncounters = nextAppointments.ranges(of: "(?s)(\\w\\w\\w \\d\\d, \\d\\d\\d\\d)(.*?)(\\n)(?=\\w\\w\\w \\d\\d, \\d\\d\\d\\d)", options: .regularExpression).map{nextAppointments[$0]}.map{String($0)}.filter {$0.contains("Pending arrival")}
+    if activeEncounters.count > 0 {
+        return activeEncounters[0].simpleRegExMatch("\\w\\w\\w \\d\\d, \\d\\d\\d\\d - \\d\\d:\\d\\d \\w\\w")
+    } else {
+        return "Next apt not found"
+    }
+}
+
+
+
+    
 //Get the name, age, and DOB from the text
 func nameAgeDOB(_ theText: String?) -> (String, String, String)? {
 	var ptName = ""
@@ -257,4 +232,6 @@ func checkPharmacyLocationFrom(_ pharm:String) -> String {
 	
 	return result
 }
+
+
 
