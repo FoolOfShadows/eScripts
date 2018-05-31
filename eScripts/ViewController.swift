@@ -118,7 +118,12 @@ class ViewController: NSViewController {
 		
 		guard let ptNameAgeDOB = nameAgeDOB(theText) else { return }
 		/*if ptNameAgeDOB.0.capitalized != patientName*/
-        if !ptNameAgeDOB.0.capitalized.contains(patientName) || !patientName.contains(ptNameAgeDOB.0.capitalized) {
+        let newNameComponents = Set(ptNameAgeDOB.0.capitalized.components(separatedBy: " "))
+        let oldNameComponents = Set(patientName.components(separatedBy: " "))
+        //print("New Set: \(newNameComponents)\nOldSet: \(oldNameComponents)\n\(newNameComponents.isSubset(of: oldNameComponents))\n\(oldNameComponents.isSubset(of: newNameComponents))")
+        
+        if !newNameComponents.isSubset(of: oldNameComponents) && !oldNameComponents.isSubset(of: newNameComponents) {
+            //print("\(ptNameAgeDOB.0.capitalized) :: \(patientName)")
 			//After notifying the user, break out of the program
 			let theAlert = NSAlert()
 			theAlert.messageText = "The refill information you're trying to add is for \(ptNameAgeDOB.0.capitalized) rather than \(patientName)."
