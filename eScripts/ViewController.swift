@@ -117,7 +117,8 @@ class ViewController: NSViewController {
 		let currentResults = scriptText.string
 		
 		guard let ptNameAgeDOB = nameAgeDOB(theText) else { return }
-		if ptNameAgeDOB.0.capitalized != patientName {
+		/*if ptNameAgeDOB.0.capitalized != patientName*/
+        if !ptNameAgeDOB.0.capitalized.contains(patientName) || !patientName.contains(ptNameAgeDOB.0.capitalized) {
 			//After notifying the user, break out of the program
 			let theAlert = NSAlert()
 			theAlert.messageText = "The refill information you're trying to add is for \(ptNameAgeDOB.0.capitalized) rather than \(patientName)."
