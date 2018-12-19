@@ -51,15 +51,15 @@ func nameAgeDOB(_ theText: String?) -> (String, String, String)? {
 			case currentLine.range(of: "PRN:") != nil:
 				ptName = theSplitText[lineCount - 1]
 				lineCount += 1
-			case currentLine.range(of: "Gender") != nil && ptName == "":
-				ptName = theSplitText[lineCount - 2].replacingOccurrences(of: "Patient", with: "")
+            case currentLine.range(of: "NAME") != nil && theSplitText[lineCount - 1].range(of: "Patient") != nil && ptName == "":
+				ptName = theSplitText[lineCount + 1].replacingOccurrences(of: "Patient", with: "")
 				lineCount += 1
 			case currentLine.hasPrefix("DOB"):
-				let dobLine = currentLine
+				let dobLine = theSplitText[lineCount + 1]
 				ptDOB = simpleRegExMatch(dobLine, theExpression: "\\d./\\d./\\d*")
 				lineCount += 1
 			case currentLine.hasPrefix("Pharmacy"):
-				let pharmacyLine = lineCount + 1
+				let pharmacyLine = lineCount + 2
 				ptPharmacy = theSplitText[pharmacyLine]
 				lineCount += 1
 			default:
@@ -199,7 +199,8 @@ func getFileLabellingName(_ name: String) -> String {
 
 func getScriptDataFrom(_ text:String?) -> String {
 	var finalScriptData = "Program failed to find script data."
-	if let scriptData = text?.findRegexMatchFrom("Prescribed", to: "GenericsSubstitution") {
+	if let scriptData = text?.simpleRegExMatch("(?s)Prescribed.*?ASSOCIATED DIAGNOSIS")/*text?.findRegexMatchFrom("Prescribed", to: "ASSOCIATED DIAGNOSIS")*/ {
+        print("Script Data: \(scriptData)")
 		var dataArray:[String] = scriptData.components(separatedBy: "\n")
 		dataArray = dataArray.filter {!$0.isEmpty}
 		print(dataArray)

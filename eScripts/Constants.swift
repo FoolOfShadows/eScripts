@@ -8,6 +8,6 @@
 
 import Foundation
 
-let replacementSet = [("Name", "Name: "), ("Quantity", "Quantity: "), ("Units", ""), ("Sig", ""), ("Days Supply", "Days Supply: "), ("Originating Prescriber", ""), ("Prescribed Date", "Prescribed Date: "), ("Patient", "")]
+let replacementSet = [("Name", "Name: "), ("Quantity", "Quantity: "), ("Units", ""), ("Sig", ""), ("Days Supply", "Days Supply: "), ("Originating Prescriber", ""), ("Prescribed Date", "Prescribed Date: "), ("Patient", ""), ("ASSOCIATED DIAGNOSIS", "")]
 
 let pharmacyCodes = [953:"Marshall", 06196:"Marshall", 631:"Marshall", 959:"Longview", 918:"Marshall", 6963:"Anna, TX"]
